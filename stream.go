@@ -89,6 +89,7 @@ func (s *Stream) readAtLeast(buf []byte, min int) (n int, err error) {
 	println("XXX in readAtLeast")
 	for n < min && err == nil {
 		var nn int
+		println("XXX s.readTimeout: ", s.readTimeout.String())
 		if s.readTimeout > 0 {
 			println("setting ReadDeadline")
 			if err = s.stream.SetReadDeadline(time.Now().Add(s.readTimeout)); err != nil {
