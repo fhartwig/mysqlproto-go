@@ -86,6 +86,7 @@ func (s *Stream) ResetStats() {
 }
 
 func (s *Stream) readAtLeast(buf []byte, min int) (n int, err error) {
+	println("XXX in readAtLeast")
 	for n < min && err == nil {
 		var nn int
 		if s.readTimeout > 0 {
